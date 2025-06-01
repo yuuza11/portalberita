@@ -10,7 +10,7 @@
 </head>
 <body class="h-full bg-gray-800">
 
-<div class="min-h-full">
+<div class="min-h-full bg-gray-800">
   <x-navbar></x-navbar>
 
   <x-header>{{ $title }}</x-header>
