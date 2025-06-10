@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 
 class News extends Model
 {
+    public $timestamps = true; // (opsional, true secara default)
+
     protected $fillable = ['title','slug', 'description', 'image', 'category'];
 
     protected static function boot()
