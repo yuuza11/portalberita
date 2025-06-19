@@ -1,10 +1,11 @@
 <x-layout>
-  <x-slot:title>{{ $title }}</x-slot>
+    <x-slot:title>Hasil Pencarian : {{ $query }}</x-slot:title>
 
-  <div>
-  <section class="container mx-auto px-4 py-8 grid gap-6 grid-cols-1 md:grid-cols-3">
+    <div class="container mx-auto px-4 py-8">
 
-            @foreach ($newsItems as $news)
+        @if($newsItems->count())
+            <div class="grid gap-6 grid-cols-1 md:grid-cols-3">
+                 @foreach ($newsItems as $news)
               <a href="{{ route('show', $news->slug) }}">
                 <div class="bg-gray-700 rounded-lg p-4 shadow hover:shadow-xl transition flex flex-col h-full">
                     <img src="{{ asset('storage/' . $news->image) }}" alt="image" class="w-full h-48 object-cover">
@@ -13,10 +14,14 @@
                 </div>
               </a>
             @endforeach
-  </div>
+            </div>
 
-  <div class="mt-6 flex justify-center">
-    {{ $newsItems->links() }}
-  </div>
+        <div class="mt-6 flex justify-center">
+            {{ $newsItems->links() }}
+        </div>
 
+        @else
+            <p class="text-gray-200">Tidak ada hasil untuk pencarian tersebut.</p>
+        @endif
+    </div>
 </x-layout>

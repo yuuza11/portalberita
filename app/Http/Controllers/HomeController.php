@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $newsItems = News::latest()->take(6)->get();
+        $newsItems = News::latest()->take(6)->paginate(9);
         return view('home', compact('newsItems'))->with('title', 'Trending');
     }
 }

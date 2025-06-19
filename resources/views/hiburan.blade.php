@@ -1,7 +1,8 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot>
     
-    <section class="container mx-auto px-4 py-8 grid gap-6 grid-cols-1 md:grid-cols-3">
+  <div>
+  <section class="container mx-auto px-4 py-8 grid gap-6 grid-cols-1 md:grid-cols-3">
 
             @foreach ($newsItems as $news)
               <a href="{{ route('show', $news->slug) }}">
@@ -12,5 +13,10 @@
                 </div>
               </a>
             @endforeach
+  </div>
+
+  <div class="mt-6 flex justify-center">
+    {{ $newsItems->links() }}
+  </div>
 
   </x-layout>

@@ -13,10 +13,21 @@
               <x-navlink href="teknologi" :active="request()->is('teknologi')">Teknologi</x-navlink>
               <x-navlink href="hiburan" :active="request()->is('hiburan')">Hiburan</x-navlink>
               <x-navlink href="otomotif" :active="request()->is('otomotif')">Otomotif</x-navlink>
-              <x-navlink href="politik" :active="request()->is('politik')">Politik</x-navlink>
+              <x-navlink href="esport" :active="request()->is('esport')">Esport</x-navlink>
             </div>
           </div>
         </div>
+
+        <form action="{{ route('search') }}" method="GET" class="flex items-center gap-2">
+          <input type="text" name="query"
+              class="px-3 py-1.5 rounded-md bg-gray-800 text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:ring focus:border-gray-500"
+              placeholder="Cari berita..." autocomplete="off">
+          <button type="submit"
+              class="bg-gray-900 text-white px-3 py-1.5 rounded-md hover:bg-gray-700 transition">
+            Cari
+          </button>
+        </form>
+
         <div class="hidden md:block">
           <div class="ml-4 flex items-center md:ml-6">
             <!-- Profile dropdown -->
@@ -72,7 +83,7 @@
               <x-navlink href="teknologi" :active="request()->is('teknologi')">Teknologi</x-navlink>
               <x-navlink href="hiburan" :active="request()->is('hiburan')">Hiburan</x-navlink>
               <x-navlink href="otomotif" :active="request()->is('otomotif')">Otomotif</x-navlink>
-              <x-navlink href="politik" :active="request()->is('politik')">Politik</x-navlink>
+              <x-navlink href="esport" :active="request()->is('esport')">Esport</x-navlink>
       </div>
       <div class="border-t border-gray-700 pt-4 pb-3">
         <div class="flex items-center px-5">

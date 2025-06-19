@@ -9,7 +9,7 @@ class HiburanController extends Controller
 {
     public function index()
     {
-        $newsItems = News::where('category', 'hiburan')->latest()->get();
+        $newsItems = News::where('category', 'hiburan')->latest()->paginate(9);
         return view('hiburan', compact('newsItems'))->with('title', 'Hiburan');
     }
 }

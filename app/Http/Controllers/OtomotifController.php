@@ -9,7 +9,7 @@ class OtomotifController extends Controller
 {
     public function index()
     {
-        $newsItems = News::where('category', 'otomotif')->latest()->get();
+        $newsItems = News::where('category', 'otomotif')->latest()->paginate(9);
         return view('otomotif', compact('newsItems'))->with('title', 'Otomotif');
     }
 }

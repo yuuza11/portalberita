@@ -13,5 +13,19 @@ class BeritaController extends Controller
     return view('show', compact('news'));
 }
 
+public function search(Request $request)
+{
+    $query = $request->input('query');
+
+    if (empty($query)) {
+        $newsItems = collect();
+    } else {
+        $newsItems = News::where('title', 'like', '%' . $query . '%')
+        ->orWhere('description', 'like', '%' . $query . '%')
+        ->paginate(9);
+    }
+
+    return view('search', compact('newsItems', 'query'));
 }
 
+}

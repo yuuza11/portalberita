@@ -9,7 +9,7 @@ class OlahragaController extends Controller
 {
     public function index()
     {
-        $newsItems = News::where('category', 'olahraga')->latest()->get();
+        $newsItems = News::where('category', 'olahraga')->latest()->paginate(3);
         return view('olahraga', compact('newsItems'))->with('title', 'Olahraga');
     }
 }
